@@ -2,7 +2,7 @@ import express from 'express';
 import { config } from '@dotenvx/dotenvx';
 import { v2 as cloudinary } from 'cloudinary';
 import cors from 'cors';
-
+import authorRoute from './routes/blog.js';
 import { sql } from './utils/db.js';
 config();
 //
@@ -58,7 +58,7 @@ async function initDB() {
     console.log('Error initDb', error);
   }
 }
-app.use('/api/v1');
+app.use('/api/v1', authorRoute);
 
 initDB().then(() => {
   app.listen(port, () => {

@@ -9,3 +9,5 @@ router.post('/blog/new', isAuth, uploadFile, createBlog);
 router.post('blog/:id', isAuth, uploadFile, updaeBlog);
 //
 router.delete('blog/:id', isAuth, deleteBlog);
+
+export default router;
